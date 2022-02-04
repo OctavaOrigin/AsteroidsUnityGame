@@ -260,8 +260,19 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "WAD",
-                    "id": "2e71cb04-0590-4a56-8d0d-5aaff3022c69",
+                    "name": "",
+                    "id": "6f90d654-f3c3-4ea1-a9ef-b698fe74f01a",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "25ad2699-9fcf-4dfd-9f8f-b44daec8fa93",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -272,33 +283,33 @@
                 },
                 {
                     "name": "up",
-                    "id": "1546709c-e272-4156-ac5c-7d7247a69eb4",
+                    "id": "0d5c043b-fab0-41b0-be9f-425bac5dc21a",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "",
                     "action": "MoveUpRightLeft",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "9d15be52-8c89-4afa-a8ee-fbf003eaca84",
+                    "id": "86f1073a-20fe-4bae-b8da-eb7a38e89977",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "",
                     "action": "MoveUpRightLeft",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "dc3efd51-cf17-45e8-ae0d-4c451d36114c",
+                    "id": "efbbef06-7f89-4095-847e-be6c7fe9b328",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "",
                     "action": "MoveUpRightLeft",
                     "isComposite": false,
                     "isPartOfComposite": true

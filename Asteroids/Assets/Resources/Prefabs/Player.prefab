@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1829812572157826423}
   - component: {fileID: 8022277132991248495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ship_K
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,10 @@ GameObject:
   - component: {fileID: 5548949040075267097}
   - component: {fileID: -6921352447343906123}
   - component: {fileID: 4386307157813065601}
-  m_Layer: 0
+  - component: {fileID: 8876275287168224032}
+  - component: {fileID: 164362071928866886}
+  - component: {fileID: 8453779122251374727}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,3 +160,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3cffe0beb119e4a906493b72246546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpeed: 6
+  accelerationSpeed: -2
+  rotationSpeed: 1.4
+--- !u!50 &8876275287168224032
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7979686106648273707}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!60 &164362071928866886
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7979686106648273707}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.004732499, y: 0.23806763}
+      - {x: -0.06134695, y: 0.04399708}
+      - {x: -0.16186038, y: -0.24584973}
+      - {x: -0.0028452724, y: -0.16539717}
+      - {x: 0.16186053, y: -0.24584937}
+      - {x: 0.08027679, y: -0.012792647}
+--- !u!114 &8453779122251374727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7979686106648273707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 997604c46f968674fa7ae465ac6299b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 581552920240662870, guid: 3e5c29f24789d23409d2b79e4d9ef9f0, type: 3}
+  laserBeam: {fileID: 6341094249009001596, guid: 54634a68dd8c9b84db8b630c5f7ce84d, type: 3}
+  timeBetweenShots: 0.2
+  canFire: 1
