@@ -24,5 +24,10 @@ public class ProjectileScript : MonoBehaviour
         transform.position += vector * speed * Time.deltaTime;
     }
 
+    private void OnTriggerEnter2D( Collider2D collision )
+    {
+        
+        Destroy(gameObject);
+    }
 
 }

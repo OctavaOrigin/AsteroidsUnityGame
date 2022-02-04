@@ -11,6 +11,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private LayerMask[] repel;
     [SerializeField] private LayerMask[] pushAway;
 
+    private Vector3 minCorner;
+    private Vector3 maxCorner;
+
     Player player;
     enum MoveToTarget {
         random,
@@ -19,6 +22,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] MoveToTarget moveTo;
     private void Start()
     {
+        minCorner = Camera.main.ViewportToWorldPoint(new Vector2(0,0));
+        maxCorner = Camera.main.ViewportToWorldPoint(new Vector2(1,1));
+
         rayLength = GetComponent<PolygonCollider2D>().bounds.extents.x * 2f;
         Debug.DrawRay(transform.position,Vector2.up * rayLength);
         player = FindObjectOfType<Player>();
@@ -30,6 +36,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        OutOfBoundaries();
         FireRayCast(); // casting rays to find and avoid other enemyes/rocks
         MoveToTheTarget(moveTo);
     }
@@ -82,15 +89,38 @@ public class Enemy : MonoBehaviour
     {
         Vector3 center = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
         direction = center - transform.position;
-        float randomAngle = Random.Range(-15,15);
+        float randomAngle = Random.Range(-40,40);
         float newX = Mathf.Cos(randomAngle * Mathf.Deg2Rad) * direction.x - Mathf.Sin(randomAngle * Mathf.Deg2Rad) * direction.y;
         float newY = Mathf.Sin(randomAngle * Mathf.Deg2Rad) * direction.x + Mathf.Cos(randomAngle * Mathf.Deg2Rad) * direction.y;
         direction = new Vector3(newX,newY);
         direction = direction.normalized;
     }
 
+    private void OutOfBoundaries()
+    {
+        if (Mathf.Abs(transform.position.x) > maxCorner.x * 2)
+        {
+            Destroy(gameObject);
+        }
+
+        if (Mathf.Abs(transform.position.y) > maxCorner.y * 1.5f)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
     private void OnTriggerEnter2D( Collider2D collision )
     {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (!transform.GetChild(i).gameObject.activeSelf)
+            {
+                transform.GetChild(i).gameObject.SetActive(true);
+                transform.GetChild(i).parent = null;
+            }
+        }
+
         OnDeath.Invoke();
         Destroy(gameObject);
     }

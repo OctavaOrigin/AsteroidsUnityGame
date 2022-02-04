@@ -46,3 +46,5 @@ MonoBehaviour:
   bigRock: {fileID: 7892753238797822205, guid: 2c6f7fa990b07cc40969b6d61b0c6107, type: 3}
   miniRock: {fileID: 847628850539576721, guid: 0b9b9a3f1d8006b40a07c19239b7c4ea, type: 3}
   spaceShip: {fileID: 11408808374151808, guid: b4baaf58318f43443916a4d772c34a70, type: 3}
+  maxRocks: 1
+  maxShips: 1

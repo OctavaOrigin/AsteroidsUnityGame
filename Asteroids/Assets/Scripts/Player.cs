@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] float rotationSpeed;
     Shooter shooter;
     private float t = 0f;
+    float speed;
 
     private Vector3 minCorner;
     private Vector3 maxCorner;
@@ -51,7 +52,7 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        float speed = Mathf.Lerp(0, maxSpeed, t*t);
+        speed = Mathf.Lerp(0, maxSpeed, t*t);
         t += Time.deltaTime * accelerationSpeed;
         t = Mathf.Clamp(t,0,1);
 
@@ -78,5 +79,26 @@ public class Player : MonoBehaviour
             float offSet = Mathf.Sign(transform.position.y) * (playerBoundaries.y / 3);
             transform.position = new Vector3(transform.position.x,transform.position.y * -1 + offSet,transform.position.z);
         }
+    }
+
+    public float GetSpeed()
+    {
+        return speed / Time.deltaTime;
+    }
+    
+    public float GetAngle()
+    {
+        return transform.eulerAngles.z;
+    }
+
+    public Vector2 GetCoordinates()
+    {
+        return new Vector2(transform.position.x, transform.position.y);
+    }
+
+    private void OnTriggerEnter2D( Collider2D collision )
+    {
+        Debug.Log("Game Over");
+        Time.timeScale = 0;
     }
 }

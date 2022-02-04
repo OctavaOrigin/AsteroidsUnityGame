@@ -15,13 +15,15 @@ public class Shooter : MonoBehaviour
 
     GameObject laser;
     Vector3 direction;
-    
-    
+
+    private void Awake()
+    {
+        LaserBeam.SetUpLaser();
+    }
 
     private void Start()
     {
         Fire = FireProjectile;
-        LaserBeam.SetUpLaser();
     }
     private void Update()
     {
@@ -49,7 +51,6 @@ public class Shooter : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("FIRING");
             GameObject bullet = Instantiate(projectile,transform.position,Quaternion.identity);
             bullet.GetComponent<ProjectileScript>().vector = direction; // give bullet a direcion where to go
             bullet.transform.eulerAngles = transform.eulerAngles; // turn bullet into correct direcion
